@@ -29,7 +29,7 @@ export default function Modal({ mode, setShowModal, getData, note }) {
 
   async function postData() {
     try {
-      const result = await fetch(`${process.env.REACT_APP_SERVERURL}/todos`, {
+      const result = await fetch(`/todos`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -48,7 +48,7 @@ export default function Modal({ mode, setShowModal, getData, note }) {
     e.preventDefault();
     try {
       const result = await fetch(
-        `${process.env.REACT_APP_SERVERURL}/todos/${note.id}`,
+        `/todos/${note.id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },

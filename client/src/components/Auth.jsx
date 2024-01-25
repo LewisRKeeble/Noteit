@@ -21,7 +21,7 @@ export default function Auth() {
       return;
     }
     const result = await fetch(
-      `${process.env.REACT_APP_SERVERURL}/${endpoint}`,
+      `/${endpoint}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

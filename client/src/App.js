@@ -15,7 +15,7 @@ export default function App() {
   const getData = async () => {
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_SERVERURL}/todos/${userEmail}`
+        `/todos/${userEmail}`
       );
       const data = await response.json();
       setNotes(data);

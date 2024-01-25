@@ -9,7 +9,7 @@ function Note({ note, getData }) {
 
   async function deleteNote() {
     try {
-      const result = await fetch(`${process.env.REACT_APP_SERVERURL}/todos/${note.id}`, {
+      const result = await fetch(`/todos/${note.id}`, {
         method: "DELETE",
       });
       if (result.status === 200) {

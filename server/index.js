@@ -71,13 +71,6 @@ app.post("/signup", async (req, res) => {
   const { email, password } = req.body;
   const salt = bcrypt.genSaltSync(10);
   const hashedPassword = bcrypt.hashSync(password, salt);
-  if (!email.rows.length) {
-    return res.json({ detail: "Please input valid data" });
-  }
-  if (!password.rows.length) {
-    return res.json({ detail: "Please input valid data" });
-  }
-
   try {
     const users = await pool.query(
       `INSERT INTO users (email, hashed_password) VALUES($1,$2)`,

@@ -4,6 +4,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Auth from "./components/Auth";
 import { useCookies } from "react-cookie";
+import IntroHeader from "./components/IntroHeader";
 
 export default function App() {
   const [cookies, setCookie, removeCookie] = useCookies(null);
@@ -34,7 +35,13 @@ export default function App() {
 
   return (
     <div>
-      {!authToken && <Auth />}
+      {!authToken && (
+        <>
+          {" "}
+          <IntroHeader />
+          <Auth />
+        </>
+      )}
       {authToken && (
         <>
           <Header getData={getData} />

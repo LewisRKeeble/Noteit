@@ -1,10 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 html {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 body {
   background: #eee;
@@ -31,7 +32,6 @@ header {
 
 .logo {
   color: #fff;
-  font-family: "McLaren", cursive;
   font-weight: 200;
 }
 
@@ -107,11 +107,10 @@ header {
   display: flex;
   justify-content: space-between;
 }
-.form-title h3{
+.form-title h3 {
   width: 100%;
   text-align: center;
   font-size: 20px;
-
 }
 .form-title button {
   border: none;
@@ -140,7 +139,7 @@ header {
 /* Authentication */
 
 .auth-container {
-  width: 100vw;
+  width: 100%;
   height: 100svh;
   display: flex;
   align-items: center;
@@ -224,4 +223,31 @@ input:hover {
 
 .auth-options button:active {
   transform: scale(0.9);
+}
+
+/* media queries */
+
+@media only screen and (max-width: 575px) {
+  header {
+    display: flex;
+    flex-direction: column;
+  }
+  .logo {
+    text-align: center;
+  }
+  .create {
+    display: flex;
+    justify-content: space-between;
+  }
+  .welcome {
+    font-size: 15px;
+  }
+  .note-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .note {
+    width: 80%;
+  }
 }

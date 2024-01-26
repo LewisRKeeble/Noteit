@@ -14,9 +14,7 @@ export default function App() {
 
   const getData = async () => {
     try {
-      const response = await fetch(
-        `/todos/${userEmail}`
-      );
+      const response = await fetch(`/todos/${userEmail}`);
       const data = await response.json();
       setNotes(data);
     } catch (error) {
@@ -31,7 +29,7 @@ export default function App() {
   }, []);
 
   const sortedNotes = notes?.sort(
-    (a, b) => new Date(a.date) - new Date(b.date)
+    (b, a) => new Date(a.date) - new Date(b.date)
   );
 
   return (

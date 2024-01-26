@@ -3,6 +3,7 @@ import { useCookies } from "react-cookie";
 
 export default function Modal({ mode, setShowModal, getData, note }) {
   const [cookies, setCookie, removeCookie] = useCookies(null);
+  const [error, setError] = useState(null);
   const editMode = mode === "edit" ? true : false;
   const date = new Date();
   const year = date.getFullYear();
@@ -24,7 +25,6 @@ export default function Modal({ mode, setShowModal, getData, note }) {
       ...data,
       [name]: value,
     }));
-    console.log(data);
   }
 
   async function postData() {
@@ -34,6 +34,11 @@ export default function Modal({ mode, setShowModal, getData, note }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
+
+      if (result.detail) {
+        setError(result.detail);
+        return;
+      }
       if (result.status === 200) {
         console.log("Submitted");
         setShowModal(false);
@@ -47,14 +52,15 @@ export default function Modal({ mode, setShowModal, getData, note }) {
   async function editData(e) {
     e.preventDefault();
     try {
-      const result = await fetch(
-        `/todos/${note.id}`,
-        {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
-        }
-      );
+      const result = await fetch(`/todos/${note.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (result.detail) {
+        setError(result.detail);
+        return;
+      }
       if (result.status === 200) {
         setShowModal(false);
         getData();
@@ -94,6 +100,7 @@ export default function Modal({ mode, setShowModal, getData, note }) {
             type="submit"
             onClick={editMode ? editData : postData}
           />
+          {error && <p>{error}</p>}
         </form>
       </div>
     </div>

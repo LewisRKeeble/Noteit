@@ -21,25 +21,27 @@ function Note({ note, getData }) {
   }
 
   return (
-    <div className="note">
-      <h1 className="note-title">{note.title}</h1>
-      <p className="note-info">{note.info}</p>
-      <p className="note-date">{note.date}</p>
-      <button onClick={deleteNote}>
-        <DeleteIcon />
-      </button>
-      <button onClick={() => setShowModal(true)}>
-        <EditIcon />
-      </button>
-      {showModal && (
-        <Modal
-          mode={"edit"}
-          setShowModal={setShowModal}
-          note={note}
-          getData={getData}
-        />
-      )}
-    </div>
+    <section className="note-container">
+      <div className="note">
+        <h1 className="note-title">{note.title}</h1>
+        <p className="note-info">{note.info}</p>
+        <p className="note-date">{note.date}</p>
+        <button onClick={deleteNote} aria-label="delete">
+          <DeleteIcon />
+        </button>
+        <button onClick={() => setShowModal(true)} aria-label="edit">
+          <EditIcon />
+        </button>
+        {showModal && (
+          <Modal
+            mode={"edit"}
+            setShowModal={setShowModal}
+            note={note}
+            getData={getData}
+          />
+        )}
+      </div>
+    </section>
   );
 }
 

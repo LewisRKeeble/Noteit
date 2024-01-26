@@ -17,24 +17,22 @@ export default function Auth() {
   async function handleSubmit(e, endpoint) {
     e.preventDefault();
     if (!hasLogIn && password !== confirmPassword) {
-      setError("Invalid input");
+      setError("Invalid input, passwords do not match");
       return;
-    }
-    const result = await fetch(
-      `/${endpoint}`,
-      {
+    } else {
+      const result = await fetch(`/${endpoint}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
+      });
+      const data = await result.json();
+      if (data.detail) {
+        setError(data.detail);
+      } else {
+        setCookie("Email", data.email);
+        setCookie("AuthToken", data.token);
+        window.location.reload();
       }
-    );
-    const data = await result.json();
-    if (data.detail) {
-      setError(data.detail);
-    } else {
-      setCookie("Email", data.email);
-      setCookie("AuthToken", data.token);
-      window.location.reload();
     }
   }
 
@@ -65,7 +63,7 @@ export default function Auth() {
           )}
           <input
             type="submit"
-            className="create"
+            className="create-signin"
             onClick={(e) => handleSubmit(e, hasLogIn ? "login" : "signup")}
           />
           {error && <p>{error}</p>}

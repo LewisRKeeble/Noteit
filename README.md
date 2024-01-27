@@ -1,4 +1,4 @@
-#**Note it** - A note taking app
+#Note it - A note taking app
 
 ### Live preview using AWS:
 

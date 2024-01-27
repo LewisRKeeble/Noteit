@@ -40,12 +40,12 @@ Note it is a note taking app that allows users to input notes, delete notes and 
 
 7. Edit the config file in ph_hba.conf:
 
-   `sudo nano /var/lib/pgsql/data/pg_hba.conf`
+  `sudo nano /var/lib/pgsql/data/pg_hba.conf`
    edit the method from indent to md5
 
 8. restart the postgres service:
 
-   `sudo service postgres restart`
+  `sudo service postgres restart`
 
 9. CD into the client and server files and install the packages:
 

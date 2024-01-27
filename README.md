@@ -50,11 +50,11 @@ Note it is a note taking app that allows users to input notes, delete notes and 
 
 9. CD into the client and server files and install the packages:
 
-   `cd client`
-   `npm i`
-   `cd ../`
-   `cd server`
-   `npm i`
+  `cd client`
+  `npm i`
+  `cd ../`
+  `cd server`
+  `npm i`
 
 10. In Noteit/server create a .env file and fill in the info below:
 

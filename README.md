@@ -8,15 +8,15 @@ Note it is a note taking app that allows users to input notes, delete notes and 
 
 ## To run this yourself: Either use yum or apt
 
-1. install git:
+1. Install git:
 
   `yum install git`
 
-2. clone the github repo using:
+2. Clone the github repo using:
 
   `git clone https://github.com/LewisRKeeble/Noteit.git`
 
-3. cd into the directory and install node and postgres:
+3. Cd into the directory and install node and postgres:
 
   `cd Noteit/ `
   `yum install nodejs`
@@ -29,7 +29,7 @@ Note it is a note taking app that allows users to input notes, delete notes and 
   `systemctl start postgresql`
   `systemctl status postgresql`
   
-5. log into postgres without a password and set the password using:
+5. Log into postgres without a password and set the password using:
 
   `sudo -i -u postgres`
   `psql`
@@ -41,9 +41,10 @@ Note it is a note taking app that allows users to input notes, delete notes and 
 7. Edit the config file in ph_hba.conf:
 
   `sudo nano /var/lib/pgsql/data/pg_hba.conf`
-   edit the method from indent to md5
+  
+  edit the method from indent to md5
 
-8. restart the postgres service:
+8. Restart the postgres service:
 
   `sudo service postgres restart`
 
@@ -55,7 +56,7 @@ Note it is a note taking app that allows users to input notes, delete notes and 
    `cd server`
    `npm i`
 
-10. in Noteit/server create a .env file and fill in the info below:
+10. In Noteit/server create a .env file and fill in the info below:
 
    `'SQLUSERNAME='postgres'`
    `SQLPASSWORD='The passowrd you set in step 4'`

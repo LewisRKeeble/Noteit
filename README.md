@@ -32,7 +32,7 @@ Note it is a note taking app that allows users to input notes, delete notes and 
   ```
 5. Log into postgres without a password and set the password using:
 ```
-sudo -i -u postgres
+  sudo -i -u postgres
   psql
   \password postgres
 ```
@@ -40,8 +40,8 @@ sudo -i -u postgres
   
 6. Copy the sql code in the data.sql file in Noteit/server/ and use in the psql terminal to create a database and the 2 tables needed.
 ```
-cd Noteit/server
-cat data.sql
+  cd Noteit/server
+  cat data.sql
 ```
 
 7. Edit the config file in ph_hba.conf:
@@ -66,15 +66,15 @@ cat data.sql
 ```
 10. In Noteit/server create a .env file and fill in the info below:
 ```
-   'SQLUSERNAME='postgres'
-   SQLPASSWORD='The passowrd you set in step 4'
+   SQLUSERNAME='postgres'
+   SQLPASSWORD='The password you set in step 5'
    HOST='localhost'
    PORT=5432
 ```
 
 11. Set the screens needed for the website:
 ```
- screen -S server
+  screen -S server
   cd /server/
   npm run start
   ctrl A 
